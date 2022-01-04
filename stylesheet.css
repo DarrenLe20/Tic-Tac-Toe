@@ -1,0 +1,56 @@
+.Header {
+    display: flex;
+    padding: 20px;
+    background-color: aquamarine;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    flex-shrink: 0;
+    width: 600px;
+    height: 600px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    border: 2px solid black;
+    border-radius: 6px;
+}
+
+.slot {
+    font-family: sans-serif;
+    border: 1px solid black;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+    border-radius: 4px;
+    background-color: rgb(162, 206, 221);
+}
+
+.Mid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    gap: 50px;
+}
+
+.Footer {
+    display: flex;
+    padding: 20px;
+    background-color: aquamarine;
+}
+
+#X {
+    background-color: yellow;
+    color: var(--red);
+}
+
+#O {
+    background-color: red;
+    color: var(--dark-yellow);
+}
