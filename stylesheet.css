@@ -37,8 +37,8 @@ body {
 
 .container {
     flex-shrink: 0;
-    width: 500px;
-    height: 500px;
+    width: 550px;
+    height: 550px;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
@@ -47,7 +47,7 @@ body {
 .slot {
     display: flex;
     font-family: sans-serif;
-    border: 1px solid black;
+    border: 3px solid black;
     position: relative;
     justify-content: center;
     align-items: center;
@@ -89,7 +89,7 @@ body {
     border-radius: 50%;
     width: 130px;
     height: 130px;
-    border: 3px solid #100E0F;
+    border: 5px solid #100E0F;
     background-color: #F2E079;
     font-family: 'Pacifico', cursive;
     font-size: larger;
