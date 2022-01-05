@@ -7,45 +7,56 @@ const Player = (name, marker) => {
 }
 // Game Board
 const Board = (() => {
+    let mode = 0;
+    let container = document.querySelector('.container');
+    let allSlots = document.querySelectorAll(".slot");
+
     // Reset 
-    resetbtn = document.querySelector('#reset');
+    const resetbtn = document.querySelector('#reset');
+    let children = container.children;
+    resetbtn.addEventListener('click', () => {
+        location.reload();
+    })
+
+
     // Create the game board
     let board = [0, 1, 2, 3, 4, 5, 6, 7, 8]; 
-    const container = document.querySelector('.container');
     for (i = 0; i < 9; i ++) {
         const slot = document.createElement('div');
-        //slot.textContent = i;
         slot.classList.add('slot');
         slot.setAttribute('id', i);
         container.appendChild(slot);
     }
 
-    const allSlots = document.querySelectorAll(".slot");
-    allSlots.forEach(slot => slot.addEventListener('click', () => {
-        board[slot.id] = Game.active.marker;
-        slot.setAttribute('id', Game.active.marker);
-        slot.textContent = Game.active.marker;
-        console.log(board);
-        // Remove event marker 
-        slot.style.pointerEvents = 'none';
-        Game.remaining -= 1;
-        console.log("remaining: " + Game.remaining)
-        if (Game.remaining > 0) {
-            Game.gameOver();
-            // Remove all event listeners if a winner is found
-            if (Game.winner != 0) {
-                allSlots.forEach(slot => slot.style.pointerEvents = 'none');
-            } else {
-                Game.nextPlayer();
+    if (mode == 0){
+        allSlots = document.querySelectorAll(".slot");
+        allSlots.forEach(slot => slot.addEventListener('click', () => {
+            board[slot.id] = Game.active.marker;
+            slot.setAttribute('id', Game.active.marker);
+            slot.textContent = Game.active.marker;
+            // Remove event marker 
+            slot.style.pointerEvents = 'none';
+            Game.remaining -= 1;
+            console.log("remaining: " + Game.remaining)
+            if (Game.remaining > 0) {
+                Game.gameOver();
+                // Remove all event listeners if a winner is found
+                if (Game.winner != 0) {
+                    allSlots.forEach(slot => slot.style.pointerEvents = 'none');
+                } else {
+                    Game.nextPlayer();
+                }
+            } else if (Game.remaining == 0) {
+                Game.tie();
             }
-        } else if (Game.remaining == 0) {
-            Game.tie();
-        }
-    }))
+        }))
+    } else if (mode == 1) {
+
+    }
 
     
 
-    return {board};
+    return {board, mode};
 })();
 
 const Game = (() => {
@@ -82,8 +93,8 @@ const Game = (() => {
                     console.log("Player 2 won");
                 }
                 this.winner = 1;
-                console.log("Winner" + this.winner);
             }
+            console.log("Winner " + this.winner);
         }
     }
 
@@ -108,6 +119,19 @@ const Game = (() => {
         tie,
         active,
         winner,
-        remaining
+        remaining,
     };
 })();
+
+const Computer = ((marker) => {
+    function makeMove() {
+
+    }
+
+
+
+    return {
+        marker,
+        makeMove
+    };
+})
