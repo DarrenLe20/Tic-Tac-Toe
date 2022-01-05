@@ -1,25 +1,49 @@
 .Header {
     display: flex;
     padding: 20px;
-    background-color: aquamarine;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.gamename {
+    font-family: 'Pacifico', cursive;
+    font-size: 80px;
+    color: white;
+}
+
+.intro {
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+    font-size: 20px;
 }
 
 body {
     margin: 0;
+    background-color: #DB5C57;
+}
+
+.Instruct {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 20px;
+    font-size: large;
 }
 
 .container {
     flex-shrink: 0;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
-    border: 2px solid black;
-    border-radius: 6px;
 }
 
 .slot {
+    display: flex;
     font-family: sans-serif;
     border: 1px solid black;
     position: relative;
@@ -27,30 +51,72 @@ body {
     align-items: center;
     font-size: 90px;
     border-radius: 4px;
-    background-color: rgb(162, 206, 221);
+    background-color: #A0C9D8;
+    margin: 5px;
+}
+
+.slot:hover {
+    cursor: pointer;
+}
+
+.slot:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 .Mid {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 60px;
     gap: 50px;
+    gap: 0;
+}
+
+.function {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+}
+
+#reset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    border: 3px solid #100E0F;
+    background-color: #F2E079;
+    font-family: 'Pacifico', cursive;
+    font-size: larger;
+}
+
+
+#reset:hover {
+    cursor: pointer;
+}
+
+#reset:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(6px);
 }
 
 .Footer {
     display: flex;
     padding: 20px;
-    background-color: aquamarine;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 #X {
-    background-color: yellow;
-    color: var(--red);
+    font-family: 'Pacifico', cursive;
 }
 
 #O {
-    background-color: red;
-    color: var(--dark-yellow);
+    font-family: 'Pacifico', cursive;
 }
+

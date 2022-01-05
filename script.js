@@ -24,6 +24,7 @@ const Board = (() => {
     allSlots.forEach(slot => slot.addEventListener('click', () => {
         board[slot.id] = Game.active.marker;
         slot.setAttribute('id', Game.active.marker);
+        slot.textContent = Game.active.marker;
         console.log(board);
         // Remove event marker 
         slot.style.pointerEvents = 'none';
